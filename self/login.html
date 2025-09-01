@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox 로그인 폼</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh; /* 전체 화면 높이 */
+      display: flex;
+      justify-content: center; /* 가로 중앙 */
+      align-items: center;     /* 세로 중앙 */
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      font-family: Arial, sans-serif;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;  /* 세로 배치 */
+      gap: 15px;               /* 요소 간격 */
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+
+    .login-form h2 {
+      margin: 0;
+      text-align: center;
+      color: #2d3436;
+    }
+
+    .login-form input {
+      padding: 10px;
+      border: 1px solid #dfe6e9;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .login-form button {
+      padding: 12px;
+      background: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .login-form button:hover {
+      background: #74b9ff;
+    }
+  </style>
+</head>
+<body>
+  <form class="login-form" id="loginForm">
+    <h2>로그인</h2>
+    <input type="text" id="username" placeholder="아이디" required>
+    <input type="password" id="password" placeholder="비밀번호" required>
+    <button type="submit">로그인</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+
+    form.addEventListener("submit", function(event) {
+      // event.preventDefault(); // 폼의 기본 제출 동작 막기
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (password.length <= 6) {
+        alert("6자리 이상의 비밀번호를 입력해주세요.");
+        return;
+      }
+
+      // localStorage에 저장
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      alert("로그인되었습니다!");
+    });
+  </script>
+</body>
+</html>
