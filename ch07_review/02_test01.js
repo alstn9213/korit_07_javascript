@@ -3,6 +3,7 @@ const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 
 form.addEventListener("submit", event => {
+  event.preventDefault();
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
 

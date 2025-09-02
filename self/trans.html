@@ -6,6 +6,17 @@
   <title>Document</title>
 </head>
 <body>
-  <a href="login.html">로그인</a>
+  <script>
+    function Person(name) {
+  this.name = name;
+}
+Person.prototype.sayHello = function() {
+  console.log(`Hi! My name is ${this.name}`);
+};
+
+const me = new Person('Lee');
+console.log(me.sayHello());
+// console.log(me.hasOwnProperty('name'));
+  </script>
 </body>
 </html>
